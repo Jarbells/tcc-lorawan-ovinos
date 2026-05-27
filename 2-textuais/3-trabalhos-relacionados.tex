@@ -1,0 +1,110 @@
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos-relacionados}
+
+\section{Protótipo para monitoramento de sinais vitais de ovinos no sertão cearense}
+\label{sec:tr-araujo2024}
+
+O estudo realizado por \citeonline{araujo2024}, intitulado ``Protótipo para monitoramento de sinais vitais de ovinos no sertão cearense'', apresenta o desenvolvimento de um sistema voltado ao monitoramento remoto de ovinos em ambiente rural. O trabalho propõe uma solução baseada em sensores e comunicação sem fio para coletar parâmetros fisiológicos dos animais, como temperatura corporal e frequência cardíaca, com o objetivo de auxiliar na identificação de alterações que possam indicar problemas de saúde. Para isso, o autor desenvolveu um protótipo funcional utilizando uma placa microcontroladora ESP32, sensores para aferição dos sinais vitais e um módulo de comunicação \textit{Long Range} (LoRa), permitindo o envio dos dados coletados para uma estrutura de recepção e armazenamento.
+
+A arquitetura proposta no trabalho é formada por um nó sensor, instalado no animal, e por um nó receptor conectado a um servidor. O nó sensor realiza a leitura dos sinais vitais e transmite os dados por meio da tecnologia LoRa. Em seguida, o nó receptor encaminha as informações para um servidor, no qual os dados são armazenados em um banco de dados MySQL e visualizados por meio da plataforma Grafana. Dessa forma, o sistema permite que o produtor acompanhe, de maneira remota, as informações fisiológicas do animal, favorecendo a tomada de decisão em situações que exijam intervenção no manejo.
+
+Para validação do protótipo, o autor realizou testes em uma fazenda localizada em Solonópole, no Ceará. Durante o experimento, o dispositivo foi fixado ao ovino, com os sensores posicionados em contato direto com o couro do animal, e os dados foram coletados periodicamente a cada cinco minutos durante dois dias. Os resultados apresentados indicaram que a maioria das amostras de temperatura corporal permaneceu dentro da faixa esperada para ovinos, entre 38°C e 40°C, enquanto os valores de frequência cardíaca também se mantiveram distribuídos em faixas compatíveis com o monitoramento proposto. Com isso, o trabalho demonstrou a viabilidade do uso da comunicação LoRa para o acompanhamento remoto de sinais vitais de ovinos em regiões rurais com limitações de infraestrutura de comunicação.
+
+O trabalho de \citeonline{araujo2024} relaciona-se diretamente com esta pesquisa por tratar do monitoramento de ovinos no Sertão cearense e por utilizar comunicação LoRa como meio de transmissão dos dados coletados em campo. Além disso, o protótipo desenvolvido pelo autor serve como referência prática para a definição de um cenário de monitoramento baseado em sensores instalados nos animais. Entretanto, enquanto o estudo de Araújo tem como foco o desenvolvimento e a validação de um dispositivo físico para coleta de sinais vitais, esta pesquisa direciona-se à análise do comportamento da comunicação em uma rede LoRaWAN simulada. Dessa forma, o presente trabalho não busca desenvolver um novo protótipo, mas avaliar como uma rede voltada ao monitoramento de ovinos se comporta diante do aumento da quantidade de nós sensores, considerando cenários de confinamento e pastagem no Sertão Central.
+
+\section{LoRaWAN em Pecuária Inteligente: Análise de Desempenho de Algoritmos de ADR}
+\label{sec:tr-macedo2023}
+
+O estudo realizado por \citeonline{macedo2023}, intitulado ``LoRaWAN em Pecuária Inteligente: Análise de Desempenho de Algoritmos de ADR'', apresenta uma análise do uso de redes \textit{Long Range Wide Area Network} (LoRaWAN) aplicadas ao monitoramento de animais na pecuária. O trabalho considera um regime de criação semi-intensiva, no qual os animais permanecem em confinamento em determinados períodos, especialmente para alimentação, e posteriormente são deslocados para áreas de pastagem. Nesse contexto, os autores utilizam simulação para avaliar o desempenho da rede LoRaWAN diante da variação na quantidade de animais monitorados e da extensão da área de pastagem. Além disso, o estudo analisa diferentes estratégias de \textit{Adaptive Data Rate} (ADR), mecanismo responsável por ajustar parâmetros de transmissão da rede, como o fator de espalhamento, do inglês \textit{Spreading Factor} (SF), com o objetivo de observar seus efeitos sobre a cobertura e a capacidade do sistema de monitoramento.
+
+Na modelagem adotada por \citeonline{macedo2023}, os animais são representados como dispositivos finais da rede, responsáveis pelo envio das informações de monitoramento para um \textit{gateway}. Os autores consideram que o comportamento dos animais varia conforme o momento da criação. No confinamento, os dispositivos permanecem concentrados próximos à sede da propriedade, enquanto no período de pastagem os animais se deslocam pela área disponível, podendo formar pontos de maior concentração, chamados pelos autores de \textit{hotspots}. Para representar esses cenários, o estudo define parâmetros como a quantidade de animais monitorados, a área disponível por animal, o tamanho da sede de confinamento e a distribuição dos grupos durante a pastagem. A avaliação considera métricas como taxa de entrega de pacotes, do inglês \textit{Packet Delivery Ratio} (PDR), perdas por falha de sinal e vazão no \textit{gateway}, do inglês \textit{throughput}.
+
+Nos resultados apresentados por \citeonline{macedo2023}, observou-se que o comportamento da rede varia conforme a fase da criação semi-intensiva. No cenário de confinamento, os animais permanecem mais próximos ao \textit{gateway}, o que reduz as perdas por falha de sinal. Entretanto, o aumento na quantidade de animais monitorados eleva a carga de pacotes recebida pelo \textit{gateway}, provocando redução na informação monitorada com sucesso. Mesmo assim, os autores destacam que os melhores algoritmos avaliados alcançaram aproximadamente 70\% de sucesso em um cenário denso, com grande número de animais. Já no cenário de pastagem, a distribuição dos animais ao longo da fazenda torna a comunicação mais desafiadora, pois a distância em relação ao \textit{gateway} e a formação de pontos de concentração influenciam diretamente o desempenho da rede. Dessa forma, o estudo evidencia que a quantidade de dispositivos, a posição dos animais e o tipo de cenário analisado impactam o desempenho de redes LoRaWAN aplicadas ao monitoramento pecuário.
+
+O trabalho de \citeonline{macedo2023} aproxima-se desta pesquisa por utilizar simulação para avaliar uma rede LoRaWAN aplicada ao monitoramento animal, considerando a variação na quantidade de dispositivos e a comparação entre cenários de confinamento e pastagem. Além disso, o estudo contribui para esta pesquisa ao demonstrar que a concentração dos animais, a mobilidade e o aumento no número de nós sensores podem alterar o desempenho da comunicação. No entanto, o trabalho dos autores é voltado ao monitoramento de gado bovino e à comparação entre diferentes algoritmos de \textit{Adaptive Data Rate} (ADR). Esta pesquisa, por sua vez, tem como foco o monitoramento de ovinos no Sertão Central, utilizando como referência prática o protótipo de \citeonline{araujo2024}, e limita-se à análise do comportamento da rede simulada, sem propor novos algoritmos de adaptação ou o desenvolvimento de novos dispositivos.
+
+
+\section{\textit{Evaluating scalability of median-based ADR under different mobility conditions}}
+\label{sec:tr-sarmentoneto2025}
+
+O estudo realizado por \citeonline{sarmentoneto2025}, intitulado \textit{Evaluating scalability of median-based ADR under different mobility conditions}, apresenta uma avaliação da escalabilidade de redes \textit{Long Range Wide Area Network} (LoRaWAN) em cenários com mobilidade. O trabalho parte da limitação do mecanismo \textit{Adaptive Data Rate} (ADR), utilizado em redes LoRaWAN para ajustar dinamicamente parâmetros de transmissão, como fator de espalhamento, potência de transmissão e taxa de dados. Segundo os autores, embora o ADR contribua para melhorar a eficiência da rede e o consumo de energia, ele foi originalmente projetado para dispositivos estáticos, apresentando limitações em ambientes móveis, nos quais as condições do canal de comunicação variam com maior frequência. Para lidar com esse problema, o artigo avalia o esquema \textit{Median-Based Adaptive Data Rate} (MB-ADR), que utiliza medidas estatísticas para melhorar a adaptação do ADR em cenários com variação de sinal.
+
+Para avaliar o comportamento do MB-ADR, \citeonline{sarmentoneto2025} realizaram simulações com diferentes densidades de dispositivos e condições de mobilidade. O estudo considera redes LoRaWAN com até 1.000 dispositivos finais, avaliando velocidades de nós de até 20 m/s e modelos de mobilidade como \textit{Random Walk}, \textit{Gauss-Markov} e \textit{Steady-State Random Waypoint}. A análise foi conduzida com foco em métricas de desempenho da rede, como taxa de entrega de pacotes, do inglês \textit{Packet Delivery Ratio} (PDR), eficiência energética, vazão, colisões e distribuição dos fatores de espalhamento. Os resultados indicaram que o MB-ADR apresentou melhor desempenho em cenários com padrões de mobilidade mais realistas, alcançando melhorias de até 15\% na PDR e 55\% na eficiência energética quando comparado a uma abordagem baseada em filtro de Kalman sob o mesmo modelo de mobilidade.
+
+O trabalho de \citeonline{sarmentoneto2025} relaciona-se com esta pesquisa por tratar da escalabilidade de redes LoRaWAN em cenários com mobilidade e aumento na quantidade de dispositivos finais. Embora o artigo tenha como foco a avaliação do MB-ADR e a comparação com outra estratégia de adaptação baseada em filtro de Kalman, seus resultados reforçam que a densidade de nós, a mobilidade e a escolha dos parâmetros de transmissão influenciam diretamente o desempenho da rede. Essa discussão é relevante para o presente trabalho, pois, no monitoramento de ovinos, os animais podem ser representados como nós sensores móveis, responsáveis pelo envio periódico de dados. No entanto, diferentemente de \citeonline{sarmentoneto2025}, esta pesquisa não tem como objetivo propor ou avaliar um novo algoritmo de ADR, mas analisar o comportamento de uma rede LoRaWAN simulada aplicada ao monitoramento de ovinos no Sertão Central, considerando cenários de confinamento e pastagem.
+
+\section{\textit{Development of a cloud-based IoT system for livestock health monitoring using AWS and Python}}
+\label{sec:tr-bhaskaran2024}
+
+O estudo realizado por \citeonline{bhaskaran2024}, intitulado \textit{Development of a cloud-based IoT system for livestock health monitoring using AWS and Python}, apresenta o desenvolvimento de uma arquitetura baseada em Internet das Coisas, do inglês \textit{Internet of Things} (IoT), e computação em nuvem para o monitoramento da saúde de animais. O trabalho parte da limitação dos métodos tradicionais de acompanhamento da saúde animal, que dependem de observações manuais e podem ser demorados, ineficientes e pouco responsivos às necessidades da pecuária moderna. Nesse contexto, os autores propõem uma solução capaz de acompanhar indicadores como padrões de movimento, temperatura corporal e frequência cardíaca, utilizando serviços de nuvem da \textit{Amazon Web Services} (AWS) para armazenamento e gerenciamento dos dados, além da linguagem \textit{Python} para o processamento e análise das informações coletadas. A proposta também considera o uso da tecnologia \textit{Narrow Band Internet of Things} (NB-IoT), voltada à comunicação de longo alcance e baixa largura de banda, adequada para aplicações em propriedades rurais e locais remotos.
+
+A arquitetura proposta por \citeonline{bhaskaran2024} é organizada para permitir o recebimento, armazenamento, processamento e visualização de dados provenientes de dispositivos IoT instalados nos animais. Segundo os autores, a utilização de serviços em nuvem possibilita lidar com grandes volumes de dados gerados por múltiplos dispositivos, permitindo que o sistema seja ajustado conforme o tamanho da propriedade ou do rebanho monitorado. Além disso, a arquitetura busca apoiar o monitoramento em tempo real e a identificação antecipada de alterações nos animais, enviando alertas relacionados a condições anormais, como mudanças na temperatura corporal, frequência cardíaca ou nível de atividade. Dessa forma, o estudo destaca a importância de soluções escaláveis para o monitoramento animal, especialmente em cenários nos quais a quantidade de dispositivos conectados pode aumentar conforme a expansão do rebanho ou da área monitorada.
+
+O trabalho de \citeonline{bhaskaran2024} relaciona-se com esta pesquisa por abordar o uso de tecnologias de IoT no monitoramento da saúde animal, considerando indicadores fisiológicos e comportamentais, como temperatura corporal, frequência cardíaca e nível de atividade. Além disso, o estudo contribui ao destacar a importância da escalabilidade em sistemas de monitoramento pecuário, uma vez que o aumento da quantidade de dispositivos conectados exige arquiteturas capazes de lidar com maior volume de dados e diferentes tamanhos de rebanho. No entanto, diferentemente da proposta de \citeonline{bhaskaran2024}, que está voltada ao desenvolvimento de uma arquitetura em nuvem com uso de AWS, Python e NB-IoT, esta pesquisa concentra-se na análise da comunicação de uma rede LoRaWAN simulada. Assim, o foco deste trabalho não está na construção de uma plataforma em nuvem, mas na avaliação do comportamento da rede diante da variação na quantidade de nós sensores em cenários de monitoramento de ovinos no Sertão Central.
+
+\section{Comparação entre os trabalhos relacionados}
+\label{sec:comparacao-trabalhos}
+
+A Tabela \ref{tab:comparacao-trabalhos} apresenta uma comparação entre os trabalhos relacionados e esta pesquisa. Foram considerados aspectos como aplicação ao monitoramento animal, uso de LoRa ou LoRaWAN, utilização de simulação, avaliação de escalabilidade e o método principal aplicado em cada estudo.
+
+\begin{table}[htb]
+\centering
+\caption{Comparação entre os trabalhos relacionados e este trabalho}
+\label{tab:comparacao-trabalhos}
+\small
+\begin{tabular}{p{3.5cm} c c c c p{4.2cm}}
+\hline
+\textbf{Trabalho} & 
+\textbf{Animais} & 
+\textbf{LoRa} & 
+\textbf{Simulação} & 
+\textbf{Escalabilidade} & 
+\textbf{Metodologia} \\
+\hline
+
+\citeonline{araujo2024} 
+& Sim 
+& Sim 
+& Não 
+& Não 
+& Protótipo físico com sensores \\
+
+\hline
+
+\citeonline{macedo2023} 
+& Sim 
+& Sim 
+& Sim 
+& Sim 
+& Simulação com ADR \\
+
+\hline
+
+\citeonline{sarmentoneto2025} 
+& Não 
+& Sim 
+& Sim 
+& Sim 
+& Simulação com MB-ADR \\
+
+\hline
+
+\citeonline{bhaskaran2024} 
+& Sim 
+& Não 
+& Não 
+& Sim 
+& Arquitetura IoT em nuvem \\
+
+\hline
+
+Este trabalho 
+& Sim 
+& Sim 
+& Sim 
+& Sim 
+& Simulação de rede LoRaWAN \\
+
+\hline
+\end{tabular}
+\end{table}

@@ -1,0 +1,42 @@
+\chapter{Introdução}
+\label{cap:introducao}
+
+A ovinocultura apresenta importância para o Ceará, especialmente nas regiões sertanejas, onde a atividade integra a dinâmica produtiva do interior do Estado. Segundo dados da Pesquisa da Pecuária Municipal (PPM), realizada pelo Instituto Brasileiro de Geografia e Estatística (IBGE), o rebanho ovino brasileiro alcançou 21,8 milhões de cabeças em 2023 \cite{ibge2024}. No contexto estadual, o Ceará registrou aproximadamente 2,6 milhões de ovinos em 2024, com crescimento de 3,04\% em relação ao ano anterior. Municípios como Tauá, Independência, Morada Nova, Quixeramobim e Quixadá aparecem entre os principais rebanhos ovinos cearenses, indicando a presença expressiva da atividade em áreas do interior. Além disso, regiões como o Sertão dos Inhamuns, o Vale do Jaguaribe, o Sertão dos Crateús e o Sertão Central concentram parte significativa do rebanho de caprinos e ovinos do Estado, reforçando a relevância dessas regiões para a manutenção e o crescimento da atividade \cite{ceara2025}.
+
+Nesse cenário, a modernização da ovinocultura torna-se um aspecto importante para o fortalecimento da atividade no contexto regional. Em sistemas pecuários, métodos tradicionais de acompanhamento dos animais podem ser trabalhosos, pouco eficientes e dependentes de observações manuais, o que pode limitar a identificação rápida de alterações no rebanho. Nesse sentido, ferramentas de pecuária de precisão baseadas em sensores, Internet das Coisas e análise de dados podem fornecer informações em tempo real sobre os animais, contribuindo para melhorar o manejo, apoiar decisões do produtor e tornar o uso dos recursos disponíveis mais eficiente \cite{bhaskaran2024}.
+
+
+A incorporação de tecnologias digitais nesse contexto aproxima a ovinocultura dos princípios da pecuária de precisão, na qual sensores, sistemas de comunicação e plataformas de dados podem ser utilizados para acompanhar animais e ambientes de produção de forma mais contínua. \citeonline{terence2024} destacam que a Internet das Coisas, do inglês \textit{Internet of Things} (IoT), tem sido aplicada em sistemas de manejo pecuário para permitir a coleta de informações em locais remotos, automatizar atividades da propriedade e apoiar o acompanhamento dos animais. Dessa forma, o uso de sensores e dispositivos conectados pode auxiliar o produtor no monitoramento de informações relacionadas ao comportamento, à saúde e às condições do ambiente de criação.
+
+
+Entretanto, a aplicação de sistemas de monitoramento em propriedades rurais depende de tecnologias de comunicação adequadas às condições do campo. \citeonline{macedo2023} destacam que a conexão de dispositivos remotos em áreas rurais representa um caso de uso desafiador para tecnologias de comunicação voltadas à IoT, exigindo soluções capazes de cobrir áreas extensas com baixo consumo de energia e custo reduzido. Nesse sentido, redes do tipo \textit{Low-Power Wide-Area Network} (LPWAN), como a \textit{Long Range Wide Area Network} (LoRaWAN), apresentam-se como alternativas compatíveis com aplicações agropecuárias que não exigem altas taxas de transmissão de dados e que precisam operar em áreas rurais extensas, com baixo consumo de energia \cite{pagano2023}. Essa característica é relevante para cenários de monitoramento animal, nos quais os dispositivos precisam operar em campo, muitas vezes alimentados por bateria, enviando periodicamente dados relacionados aos animais e ao ambiente de criação.
+
+No Sertão cearense, \citeonline{araujo2024} apresenta um exemplo aplicado dessa abordagem ao desenvolver um protótipo para o monitoramento de sinais vitais de ovinos utilizando a tecnologia \textit{Long Range} (LoRa). O sistema proposto realiza a coleta de parâmetros fisiológicos, como temperatura corporal e frequência cardíaca, e transmite os dados para armazenamento e visualização em uma plataforma computacional. Nos testes realizados, o protótipo foi fixado ao animal, com os sensores posicionados em contato com o couro do ovino, e os dados foram coletados periodicamente, a cada cinco minutos, durante dois dias, permitindo acompanhar as variações dos sinais vitais em ambiente rural. Dessa forma, o trabalho evidencia a possibilidade de utilizar dispositivos conectados para apoiar o monitoramento remoto de ovinos em regiões com limitações de infraestrutura de comunicação.
+
+
+Embora a \textit{Long Range Wide Area Network} (LoRaWAN) apresente características adequadas para aplicações rurais de baixo consumo e longo alcance, seu desempenho pode ser afetado pelo aumento da quantidade de dispositivos e pela mobilidade dos nós sensores. \citeonline{sarmentoneto2025} destacam que o mecanismo \textit{Adaptive Data Rate} (ADR), utilizado para ajustar dinamicamente parâmetros de transmissão, foi originalmente projetado para dispositivos estáticos, apresentando limitações em ambientes móveis, nos quais as condições do canal variam com maior frequência. No estudo, os autores avaliaram a escalabilidade de redes LoRaWAN com até 1.000 dispositivos finais, considerando diferentes modelos de mobilidade e métricas como taxa de entrega de pacotes, do inglês \textit{Packet Delivery Ratio} (PDR), eficiência energética, vazão e razão de colisões. Dessa forma, em aplicações de monitoramento de ovinos, nas quais os animais podem se deslocar e cada dispositivo pode transmitir dados periodicamente, torna-se necessário analisar como a rede se comporta diante do aumento da quantidade de nós sensores e da variação das condições de comunicação.
+
+
+Nesse contexto, observa-se uma oportunidade de investigação voltada à análise da escalabilidade da comunicação em sistemas de monitoramento de ovinos. Embora \citeonline{araujo2024} tenha demonstrado a viabilidade de um protótipo para coleta e transmissão de sinais vitais de ovinos no Sertão cearense utilizando a tecnologia \textit{Long Range} (LoRa), o estudo não teve como foco avaliar o desempenho da rede diante do aumento da quantidade de animais monitorados. Deste modo, este trabalho propõe avaliar, por meio de simulação computacional, uma rede \textit{Long Range Wide Area Network} (LoRaWAN) aplicada ao monitoramento de ovinos no Sertão Central, considerando cenários de confinamento e pastagem, a variação no número de nós sensores e seus efeitos sobre o desempenho da comunicação. A proposta limita-se à análise do comportamento da rede simulada, não abrangendo o desenvolvimento de novos dispositivos, protocolos ou algoritmos de adaptação.
+
+
+\section{Objetivos}
+\label{cap:objetivos}
+
+\subsection{Objetivo Geral}
+\label{sec:objetivo-geral}
+
+Avaliar, por meio de simulação computacional, a escalabilidade de uma rede \textit{Long Range Wide Area Network} (LoRaWAN) aplicada ao monitoramento de ovinos no Sertão Central, considerando cenários de confinamento e pastagem com variação na quantidade de nós sensores.
+
+\subsection{Objetivos Específicos}
+\label{sec:objetivos-especificos}
+
+\begin{alineas}
+    \item Definir os parâmetros de simulação da rede LoRaWAN aplicada ao monitoramento de ovinos, considerando quantidade de nós sensores, intervalo de transmissão, área de cobertura e características dos cenários analisados;
+
+    \item Modelar cenários de confinamento e pastagem, representando os ovinos como nós sensores responsáveis pelo envio periódico de dados de monitoramento;
+
+    \item Analisar o impacto do aumento da quantidade de nós sensores no desempenho da comunicação da rede LoRaWAN;
+
+    \item Comparar o comportamento da rede nos cenários simulados, considerando métricas como taxa de entrega de pacotes, do inglês \textit{Packet Delivery Ratio} (PDR), perdas de comunicação e consumo energético estimado dos dispositivos.
+\end{alineas}
