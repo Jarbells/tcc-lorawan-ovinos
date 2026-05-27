@@ -1,21 +1,33 @@
-\chapter{Metodologia}
-\label{cap:metodologia}
-
-Este trabalho caracteriza-se como uma pesquisa aplicada, de abordagem quantitativa, com uso de simulação computacional. A pesquisa é aplicada porque busca analisar um problema prático relacionado ao uso de redes LoRaWAN no monitoramento de ovinos em ambiente rural, considerando cenários próximos à realidade da ovinocultura no Sertão Central. Assim, o estudo não tem como finalidade propor um novo protocolo de comunicação, um novo algoritmo de adaptação de taxa ou um novo dispositivo físico, mas avaliar o comportamento de uma rede LoRaWAN simulada diante da variação na quantidade de nós sensores.
-
-A abordagem quantitativa deve-se ao fato de que a análise será realizada a partir de dados numéricos obtidos nas simulações. Esses dados serão representados por métricas de desempenho da rede, como taxa de entrega de pacotes, Packet Delivery Ratio (PDR), perdas de pacotes e consumo energético estimado dos dispositivos. A partir dessas métricas, será possível comparar os resultados entre diferentes configurações de rede e entre os cenários de confinamento e pastagem.
-
-A simulação computacional será utilizada como meio para representar uma rede de monitoramento formada por dispositivos sensores instalados nos animais, um gateway e a infraestrutura de comunicação LoRaWAN. Essa abordagem permite avaliar previamente o comportamento da rede em diferentes condições, sem a necessidade de implantação física de uma grande quantidade de dispositivos em campo.
-
 \section{Procedimentos Metodológicos}
 \label{sec:procedimentos-metodologicos}
 
-A execução deste trabalho será organizada em etapas sequenciais, de modo que cada etapa contribua para o atendimento dos objetivos específicos definidos. Inicialmente, serão levantados e selecionados os parâmetros necessários para a simulação. Em seguida, serão modelados os cenários de confinamento e pastagem, configurada a rede LoRaWAN, executadas as simulações, coletadas as métricas de desempenho e realizada a análise comparativa dos resultados.
+A execução deste trabalho será organizada em etapas sequenciais, relacionadas aos objetivos específicos definidos. Inicialmente, serão estabelecidos os parâmetros preliminares da simulação, considerando o perfil dos nós sensores, os cenários de manejo, a configuração da rede LoRaWAN e as métricas de desempenho a serem avaliadas. Em seguida, os cenários de confinamento e pastagem serão modelados no ambiente de simulação, a rede será configurada no NS-3, as simulações serão executadas com diferentes quantidades de nós sensores e os resultados obtidos serão analisados de forma comparativa.
 
-Para a realização das simulações, será utilizado o NS-3, ferramenta adotada neste trabalho para configurar a rede LoRaWAN, representar os cenários propostos e coletar as métricas de desempenho da comunicação.
+Para a realização das simulações, será utilizado o NS-3, ferramenta adotada neste trabalho para configurar a rede LoRaWAN, representar os cenários propostos e coletar as métricas de desempenho da comunicação. A Tabela~\ref{tab:setup-preliminar} apresenta uma configuração preliminar do setup de simulação, que poderá ser revisada e ajustada durante o desenvolvimento do TCC 2, conforme a compatibilidade com a ferramenta e os resultados dos testes iniciais.
 
-A Figura~\ref{fig:fluxograma-metodologia} apresenta o fluxograma das etapas metodológicas previstas para o desenvolvimento deste trabalho. A representação visual
-tem como finalidade organizar a sequência de atividades que serão realizadas, desde a definição dos parâmetros de simulação até a análise dos resultados obtidos.
+\begin{table}[h!]
+\centering
+\captionsetup{width=16cm}
+\Caption{\label{tab:setup-preliminar} Configuração preliminar do setup de simulação}
+\begin{tabular}{p{4.5cm} p{10.5cm}}
+\hline
+\textbf{Elemento} & \textbf{Definição preliminar} \\
+\hline
+Ferramenta de simulação & NS-3, com suporte à modelagem de redes LoRaWAN. \\
+Tipo de rede & Rede LoRaWAN composta por nós sensores e gateway. \\
+Aplicação simulada & Monitoramento de ovinos por meio de nós sensores associados aos animais. \\
+Dados representados & Pacotes periódicos representando informações de monitoramento, como temperatura corporal e frequência cardíaca. \\
+Cenários avaliados & Confinamento, com maior concentração dos nós sensores, e pastagem, com maior dispersão espacial dos animais. \\
+Quantidade de nós sensores & Variação gradual da quantidade de dispositivos, a ser definida em faixas crescentes durante os testes preliminares. \\
+Comunicação & Transmissões periódicas dos nós sensores em direção ao gateway. \\
+Métricas avaliadas & Taxa de entrega de pacotes, Packet Delivery Ratio (PDR), perdas de pacotes, colisões quando disponíveis e consumo energético estimado. \\
+Objetivo da análise & Verificar o impacto do aumento da quantidade de nós sensores sobre o desempenho e a escalabilidade da rede. \\
+\hline
+\end{tabular}
+\Fonte{Elaborado pelo autor (2026).}
+\end{table}
+
+A Figura~\ref{fig:fluxograma-metodologia} apresenta o fluxograma das etapas metodológicas previstas para o desenvolvimento deste trabalho. A representação visual tem como finalidade organizar a sequência de atividades que serão realizadas, desde a definição dos parâmetros de simulação até a análise dos resultados obtidos.
 
 \begin{figure}[h!]
     \captionsetup{width=16cm}
@@ -27,16 +39,14 @@ tem como finalidade organizar a sequência de atividades que serão realizadas, 
     }
 \end{figure}
 
-Conforme apresentado na Figura~\ref{fig:fluxograma-metodologia}, a metodologia inicia-se com o levantamento e a seleção dos parâmetros de simulação, etapa necessária para definir as informações que serão representadas no ambiente computacional. Em seguida, são modelados os cenários de confinamento e pastagem e configurada a rede LoRaWAN no NS-3. Após essa configuração, serão executadas simulações com diferentes
-quantidades de nós sensores, possibilitando a coleta das métricas de desempenho e a posterior comparação dos resultados. Dessa forma, as etapas metodológicas foram
-organizadas para permitir a avaliação da escalabilidade da rede no contexto do monitoramento de ovinos.
+Conforme apresentado na Figura~\ref{fig:fluxograma-metodologia}, a metodologia inicia-se com a definição dos parâmetros de simulação e segue para a modelagem dos cenários de confinamento e pastagem. Em seguida, a rede LoRaWAN será configurada no NS-3 e as simulações serão executadas com diferentes quantidades de nós sensores. Os dados obtidos serão organizados por métricas de desempenho e analisados de forma comparativa, permitindo avaliar a escalabilidade da rede no contexto do monitoramento de ovinos.
 
 \subsection{Levantamento e seleção dos parâmetros de simulação}
 \label{subsec:parametros-simulacao}
 
-A primeira etapa consistirá no levantamento dos parâmetros necessários para a simulação da rede LoRaWAN aplicada ao monitoramento de ovinos. Serão considerados aspectos como quantidade de nós sensores, intervalo de transmissão dos dados, área de cobertura, parâmetros de comunicação, características dos cenários analisados e métricas de avaliação de desempenho.
+Nesta etapa, serão definidos os parâmetros utilizados para representar a rede LoRaWAN e o perfil dos nós sensores. A definição considerará os elementos apresentados na Tabela~\ref{tab:setup-preliminar}, incluindo a quantidade de nós, o intervalo de transmissão, os cenários de manejo, os parâmetros de comunicação e as métricas de desempenho.
 
-Após o levantamento inicial, serão selecionados os parâmetros que poderão ser representados no ambiente de simulação. Essa seleção levará em conta os recursos disponíveis na ferramenta adotada, as informações obtidas nos trabalhos relacionados e o perfil de monitoramento utilizado como referência. O protótipo desenvolvido por \citeonline{araujo2024} será utilizado como base prática para definir o tipo de dado monitorado e o envio periódico das informações pelos dispositivos sensores.
+O protótipo desenvolvido por \citeonline{araujo2024} será utilizado como base prática para representar o perfil de monitoramento dos ovinos, principalmente quanto ao tipo de dado coletado e ao envio periódico das informações. Os parâmetros definidos inicialmente poderão ser ajustados no TCC 2, conforme os testes realizados no NS-3 e a compatibilidade com os recursos disponíveis no ambiente de simulação.
 
 \subsection{Modelagem dos cenários de simulação}
 \label{subsec:modelagem-cenarios}
